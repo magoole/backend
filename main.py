@@ -1,3 +1,4 @@
+import fastapi.responses
 from fastapi import FastAPI
 from typing import Optional
 import pymongo
@@ -32,4 +33,16 @@ def search(q: str):
     results = [stringifyID(site) for site in sites.find({'$text': {'$search': query}})]
     for i in results:
         print(i)
-    return {"code": 200, "results": results}
+    return {"code": 200, "results": results, "message": "Successfully search and return results with query"}
+
+
+@app.exception_handler(500)
+def internalError(err, msg):
+    print(err, msg)
+    return fastapi.responses.JSONResponse({"code": 500, "message": "Something went wrong with the Magoole Brain"})
+
+
+@app.exception_handler(404)
+def notFoundError(err, msg):
+    print(err, msg)
+    return fastapi.responses.JSONResponse({"code": 404, "message": "Uh, nothing here !"})
