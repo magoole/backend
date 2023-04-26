@@ -1,4 +1,4 @@
-![Banner](https://repository-images.githubusercontent.com/421378452/7aaab2c1-c081-452e-b741-e6da0d37997b)
+![Banner](https://repository-images.githubusercontent.com/440189424/410fa9d2-70b8-4f88-9ddb-5a5516471544)
 <div align="center">
 
 # Magoole backend
